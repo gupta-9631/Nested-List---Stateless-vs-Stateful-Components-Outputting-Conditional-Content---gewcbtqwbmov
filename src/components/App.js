@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import "./../styles/App.css";
+import States from "./States";
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -155,7 +156,18 @@ const states = [
 ];
 
 function App() {
-  return <div id="main"></div>;
+  return (
+    <div id="main">
+      {states.map((element, index) => (
+        <States
+          stateId={`state${index + 1}`}
+          key={element.name + Math.random()}
+          stateName={element.name}
+          citiesNames={element.cities}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
